@@ -4,6 +4,12 @@ import Exercicio_02
 import Exercicio_03
 import Exercicio_04
 import Exercicio_05
+import Exercicio_06
+import Exercicio_07
+import Exercicio_08
+import Exercicio_09
+import Exercicio_10
+import Exercicio_11
 
 this.opcao = 0
 
@@ -18,7 +24,6 @@ altura = 0
 def coletarBase():
     print('Informe a Base do triângulo: ')
     this.base = float(input())
-
 def coletarAltura():
     print('Informe a Altura do triângulo: ')
     this.altura = float(input())
@@ -30,11 +35,9 @@ dias = 0
 def coletarAnos():
     print('Informe quantos anos você tem: ')
     this.anos = int(input())
-
 def coletarMeses():
     print('Informe quantos meses você tem: ')
     this.meses = int(input())
-
 def coletarDias():
     print('Informe quantos dias você tem: ')
     this.dias = int(input())
@@ -47,30 +50,87 @@ eleitores = 0
 def coletarEleitores():
     print('Informe o número de eleitores do município: ')
     this.eleitores = int(input())
-
 def coletarValidos():
     print('Informe o número de votos válidos: ')
     this.votosValidos = int(input())
-
 def coletarBrancos():
     print('Informe o número de votos brancos: ')
     this.votosBrancos = int(input())
-
 def coletarNulos():
     print('Informe o número de votos nulos: ')
     this.votosNulos = int(input())
 
 
+salario = 0
+percentualReajuste = 0
+def coletarSalario():
+    print('Informe o salário mensal atual do funcionário: ')
+    this.salario = float(input())
+def coletarPercentualReajuste():
+    print('Informe o percentual de reajuste: ')
+    this.percentualReajuste = float(input())
+
+
+custoFabr = 0
+percentualDistr = 0;
+imposto = 0
+def coletarCustoFabr():
+    print('Informe o custo de fábrica do veículo: ')
+    this.custoFabr = float(input())
+def coletarPercentualDistr():
+    print('Informe o percentual do distribuidor: ')
+    this.percentualDistr = float(input())
+def coletarImposto():
+    print('Informe o percentual de imposto: ')
+    this.imposto = float(input())
+
+
+notaUm = 0
+notaDois = 0
+notaTres = 0
+def coletarNotaUm():
+    print('Informe a primeira nota do aluno: ')
+    this.notaUm = float(input())
+def coletarNotaDois():
+    print('Informe a segunda nota do aluno: ')
+    this.notaDois = float(input())
+def coletarNotaTres():
+    print('Informe a terceira nota do aluno: ')
+    this.notaTres = float(input())
+
+
+numMacas = 0
+def coletarMacas():
+    print('Informe o número de maçãs compradas: ')
+    this.numMacas = float(input())
+
+
+def coletarNum():
+    for i in range(10):
+        print('Informe o ' + (i+1) + 'º número:')
+
+salario = 0
+valorVendas = 0
+def coletarSalario():
+    print('Informe o salário fixo do funcionário: ')
+    this.salario = float(input())
+def coletarValorVenda():
+    print('Informe o valor das vendas efetuadas pelo vendedor: ')
+    this.valorVendas = float(input())
 
 
 def Menu():
-    print('Escolha uma das opções abaixo:\n\n'+
+    print('\n\nscolha uma das opções abaixo:\n'+
           '\n1. Exercício 1'+
           '\n2. Exercício 2'+
           '\n3. Exercício 3'+
           '\n4. Exercício 4'+
           '\n5. Exercício 5'+
-          '\n6. Sair')
+          '\n6. Exercício 6'+
+          '\n7. Exercício 7'+
+          '\n8. Exercício 8'+
+          '\n9. Exercício 9'+
+          '\n21. Sair')
     this.opcao = int(input())
 
 def operacao():
@@ -102,10 +162,40 @@ def operacao():
             coletarValidos()
             coletarBrancos()
             coletarNulos()
-            print('O percentual de votos válidos é: ' + Exercicio_05.percentualValidos())
-            print('O percentual de votos brancos é: ' + Exercicio_05.percentualBrancos())
-            print('O percentual de votos nulos é: ' + Exercicio_05.percentualNulos())
+            print('O percentual de votos válidos é: ' + str(Exercicio_05.percentualValidos(this.votosValidos, this.eleitores)) + '%')
+            print('O percentual de votos brancos é: ' + str(Exercicio_05.percentualBrancos(this.votosBrancos, this.eleitores)) + '%')
+            print('O percentual de votos nulos é: ' + str(Exercicio_05.percentualNulos(this.votosNulos, this.eleitores)) + '%')
         elif this.opcao == 6:
+            #operação para exerc6
+            coletarSalario()
+            coletarPercentualReajuste()
+            print('O novo salário atualizado do funcionário é: '+str(Exercicio_06.Reajuste(this.salario, this.percentualReajuste))+' reais')
+        elif this.opcao == 7:
+            #operacao para exerc7
+            coletarCustoFabr()
+            coletarPercentualDistr()
+            coletarImposto()
+            print('O custo final do veículo é: '+str(Exercicio_07.ValorTotal(this.custoFabr, this.percentualDistr, this.imposto))+' reais')
+        elif this.opcao == 8:
+            #operacao para exerc8
+            coletarNotaUm()
+            coletarNotaDois()
+            coletarNotaTres()
+            print('A média do aluno é: '+str(Exercicio_08.Media(this.notaUm, this.notaDois, this.notaTres)))
+        elif this.opcao == 9:
+            #operacao para exerc9
+            coletarMacas()
+            print('O valor total em relação ao número de maçãs é: '+str(Exercicio_09.Valor(this.numMacas)))
+        elif this.opcao == 10:
+            #operacao para exerc10
+            coletarNum()
+            print('A ordem crescente dos 10 números é: ' +str(Exercicio_10.Ordem(this.i)))
+        elif this.opcao == 11:
+            #operacao para exerc11
+            coletarSalario()
+            coletarValorVenda()
+            print('O valor de seu salário total é: '+str(Exercicio_11.Total(this.salario, this.valorVendas)))
+        elif this.opcao == 21:
             print('Obrigado!')
         else:
             print('Opcao escolhida inválida! Tente novamente com as opções fornecidas.')

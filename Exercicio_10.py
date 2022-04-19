@@ -1,0 +1,2 @@
+def Ordem(i):
+    if
