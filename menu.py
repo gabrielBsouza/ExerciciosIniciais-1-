@@ -10,9 +10,13 @@ import Exercicio_08
 import Exercicio_09
 import Exercicio_10
 import Exercicio_11
+import Exercicio_12
+import Exercicio_13
+import Exercicio_14
 
 this.opcao = 0
-
+this.numT = 0
+this.contador = 0
 num = 0
 def coletarNum():#exercicio 2
     print('Informe o número para ver o seu antecessor')
@@ -109,6 +113,7 @@ def coletarNum():
     for i in range(10):
         print('Informe o ' + (i+1) + 'º número:')
 
+
 salario = 0
 valorVendas = 0
 def coletarSalario():
@@ -119,9 +124,52 @@ def coletarValorVenda():
     this.valorVendas = float(input())
 
 
+saldo = 0
+debito = 0
+credito = 0
+def coletarSaldo():
+    print('Informe o saldo da conta: ')
+    this.saldo = float(input())
+def coletarDebito():
+    print('Informe o débito da conta: ')
+    this.debito = float(input())
+def coletarCredito():
+    print('Informe o crédito da conta: ')
+    this.credito = float(input())
+
+def coletarNumT():
+    print('Informe um número de 1 a 10: ')
+    this.numT = int(input())
+
+    while (this.numT < 0) or (this.numT > 10):
+        if (this.numT < 1) or (this.numT > 10):
+           print('Informe número de 1 a 10!')
+           this.numT = int(input())
+
+valor = 0
+def coletarValor():
+    print('Informe um número acima de 1')
+    this.valor = int(input())
+
+    while this.valor <= 1:
+        if this.valor <= 1:
+            print('ERRO! Informe um número acima de 1!')
+            this.valor = int(input())
+
+numero = 0
+def coletarNumero():
+    for i in range(10):
+        print('Digite o {}'.format(i+1) + 'º número de 10: ')
+        this.numero = int(input())
+        if this.numero < 0:
+            this.contador = this.contador + 1
+    print('A quantidade de números negativos é: {}'.format(this.contador))
+
+
+
 def Menu():
-    print('\n\nscolha uma das opções abaixo:\n'+
-          '\n1. Exercício 1'+
+    print('\n\n\n -------------- Escolha uma das opções abaixo: --------------\n'+
+          '1. Exercício 1'+
           '\n2. Exercício 2'+
           '\n3. Exercício 3'+
           '\n4. Exercício 4'+
@@ -130,6 +178,17 @@ def Menu():
           '\n7. Exercício 7'+
           '\n8. Exercício 8'+
           '\n9. Exercício 9'+
+          '\n10. Exercício 10 (não feito)'+
+          '\n11. Exercício 11'+
+          '\n12. Exercício 12'+
+          '\n13. Exercício 13' +
+          '\n14. Exercício 14' +
+          '\n15. Exercício 15' +
+          '\n16. Exercício 16' +
+          '\n17. Exercício 17' +
+          '\n18. Exercício 18' +
+          '\n19. Exercício 19' +
+          '\n20. Exercício 20' +
           '\n21. Sair')
     this.opcao = int(input())
 
@@ -195,6 +254,25 @@ def operacao():
             coletarSalario()
             coletarValorVenda()
             print('O valor de seu salário total é: '+str(Exercicio_11.Total(this.salario, this.valorVendas)))
+        elif this.opcao == 12:
+            #operacao para exerc12
+            coletarSaldo()
+            coletarDebito()
+            coletarCredito()
+            print(Exercicio_12.SaldoAtual(this.saldo, this.debito, this.credito))
+        elif this.opcao == 13:
+            #operacao para exerc13
+            coletarNumT()
+            print("Sua Tabuada é: ")
+            Exercicio_13.Tabuada(this.numT)
+        elif this.opcao == 14:
+            #operação para exerc14
+            coletarValor()
+            print('Os números entre 0 e {} são: '.format(this.valor))
+            Exercicio_14.Impressao(this.valor)
+        elif this.opcao == 15:
+            #operacao para exerc15
+            coletarNumero()
         elif this.opcao == 21:
             print('Obrigado!')
         else:

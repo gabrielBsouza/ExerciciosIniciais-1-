@@ -1,2 +1,2 @@
 def Ordem(i):
-    if
+    print('')
